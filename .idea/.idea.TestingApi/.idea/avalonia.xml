@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="TestingApi/App.axaml" value="TestingApi/TestingApi.csproj" />
+        <entry key="TestingApi/DropWindow.axaml" value="TestingApi/TestingApi.csproj" />
+        <entry key="TestingApi/EditingWindow.axaml" value="TestingApi/TestingApi.csproj" />
+        <entry key="TestingApi/MainWindow.axaml" value="TestingApi/TestingApi.csproj" />
+        <entry key="TestingApi/MenuWindow.axaml" value="TestingApi/TestingApi.csproj" />
+        <entry key="TestingApi/OpenImageWindow.axaml" value="TestingApi/TestingApi.csproj" />
+        <entry key="TestingApi/SearchWindow.axaml" value="TestingApi/TestingApi.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

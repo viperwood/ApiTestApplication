@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
+        x:Class="TestingApi.MainWindow"
+        x:CompileBindings="False"
+        Title="TestingApi">
+        <Grid ColumnDefinitions="* * *" RowDefinitions="50 * *">
+                <StackPanel Grid.Column="0" Grid.Row="0">
+                        <Button Margin="10" Content="Назад" BorderBrush="Black" Click="Beack"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                        <TextBlock Text="Окно добавления пользователя" TextWrapping="Wrap" TextAlignment="Center" Margin="10" FontWeight="Black" FontSize="20" HorizontalAlignment="Center"/>
+                        <ListBox 
+                                Name="TestList" 
+                                Height="200"
+                                BorderBrush="Black" 
+                                BorderThickness="1">
+                                <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                                <TextBlock Text="{Binding Login}"></TextBlock>
+                                        </DataTemplate>
+                                </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button 
+                                BorderBrush="Black"
+                                Content="Обновить" 
+                                Margin="0 10 0 0" 
+                                HorizontalAlignment="Center" 
+                                Click="Update"/>
+                        <TextBox Margin="10" Watermark="Имя" Name="TextName"/>
+                        <TextBox Margin="10" Watermark="Логин" Name="TextLogin"/>
+                        <TextBox Margin="10" Watermark="Пароль" Name="TextPassword"/>
+                        <TextBox Margin="10" Watermark="Роль" Name="TextRole"/>
+                        <Button 
+                                Click="CreateUser" 
+                                Content="Добавит" 
+                                Margin="10 0" 
+                                HorizontalAlignment="Center"
+                                BorderBrush="Black"/>
+                </StackPanel>
+        </Grid>
+</Window>

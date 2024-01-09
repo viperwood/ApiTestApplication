@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650"
+        x:Class="TestingApi.EditingWindow"
+        x:CompileBindings="False"
+        Title="EditingWindow">
+    <StackPanel>
+        <Button Content="Назад" Margin="10 10 0 0" Click="Beack" BorderBrush="Black"/>
+        <TextBlock Text="Окно редактирования пользователя" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="20"/>
+        <ListBox
+            Name="ListBoxUsers"
+            BorderThickness="1"
+            Width="300"
+            Height="300">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Login}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBox Width="300" Margin="10" Name="LoginBox" Watermark="New Login"/>
+        <TextBox Width="300" Margin="10" Name="PasswordBox" Watermark="New password"/>
+        <TextBox Width="300" Margin="10" Name="UserNameBox" Watermark="New UserName"/>
+        <TextBox Width="300" Margin="10" Name="RoleBox" Watermark="New role"/>
+        <Button Content="Изменить" HorizontalAlignment="Center" BorderThickness="1" BorderBrush="Black" Click="Button"/>
+    </StackPanel>
+</Window>

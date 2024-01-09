@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+        x:Class="TestingApi.SearchWindow"
+        x:CompileBindings="False"
+        Title="SearchWindow">
+    <StackPanel>
+        <Button Margin="10" Content="Назад" BorderBrush="Black" Click="Beack"/>
+        <TextBlock Text="Окно поиска" HorizontalAlignment="Center" Margin="20" FontSize="20" FontWeight="Black"/>
+        <TextBox Watermark="Login" Name="SearchBox" KeyUp="Serch" Margin="20 0 20 0"/>
+        <ListBox 
+            Name="ListInfo"
+            Margin="20 0 20 20"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Height="300">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Login: "/>
+                            <TextBlock Text="{Binding Login}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Fullname: "/>
+                            <TextBlock Text="{Binding Fullname}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Password: "/>
+                            <TextBlock Text="{Binding Password}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>

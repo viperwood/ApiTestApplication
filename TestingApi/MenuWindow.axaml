@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+        x:Class="TestingApi.MenuWindow"
+        x:CompileBindings="False"
+        Title="MenuWindow">
+    <StackPanel>
+        <TextBlock Text="Меню" HorizontalAlignment="Center" Margin="20" FontSize="20" FontWeight="Black"/>
+        <ListBox
+            Width="300" 
+            Height="150"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Name="ListBoxUsers">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Login}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button 
+            Content="Добавление пользователя"
+            BorderBrush="Black"
+            HorizontalAlignment="Center"
+            Width="300"
+            Click="AddUser"
+            HorizontalContentAlignment="Center"
+            Margin="10"/>
+        <Button 
+            Click="DropUser"
+            Content="Удаление пользователя"
+            Width="300"
+            HorizontalContentAlignment="Center"
+            BorderBrush="Black"
+            HorizontalAlignment="Center"
+            Margin="10"/>
+        <Button 
+            Content="Обновление данных пользователя"
+            Width="300"
+            Click="EditingUser"
+            HorizontalContentAlignment="Center"
+            BorderBrush="Black"
+            HorizontalAlignment="Center"
+            Margin="10"/>
+        <Button 
+            Content="Поимк пользователя"
+            Width="300"
+            Click="SearchUser"
+            HorizontalContentAlignment="Center"
+            BorderBrush="Black"
+            HorizontalAlignment="Center"
+            Margin="10"/>
+        <Button 
+            Content="Открытие картинки"
+            Width="300"
+            Click="OpenImage"
+            HorizontalContentAlignment="Center"
+            BorderBrush="Black"
+            HorizontalAlignment="Center"
+            Margin="10"/>
+    </StackPanel>
+</Window>
