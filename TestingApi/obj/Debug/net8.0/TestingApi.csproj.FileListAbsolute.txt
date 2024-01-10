@@ -263,3 +263,4 @@ C:\Users\maxim\RiderProjects\TestingApi\TestingApi\obj\Debug\net8.0\TestingApi.c
 C:\Users\maxim\RiderProjects\TestingApi\TestingApi\obj\Debug\net8.0\TestingApi.genruntimeconfig.cache
 C:\Users\maxim\RiderProjects\TestingApi\TestingApi\obj\Debug\net8.0\ref\TestingApi.dll
 C:\Users\maxim\RiderProjects\TestingApi\TestingApi\obj\Debug\net8.0\TestingApi.sourcelink.json
+C:\Users\prdb\RiderProjects\TestingApi\TestingApi\obj\Debug\net8.0\TestingApi.sourcelink.json

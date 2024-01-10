@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TestingApi.OpenImageWindow"
+        x:CompileBindings="False"
         Title="OpenImageWindow">
         <StackPanel>
                 <Border Width="250"
@@ -16,8 +17,22 @@
                                 Name="ImageFromAdd"/>
                 </Border>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0 0 0 10 ">
-                        <Button Content="Открыть" BorderBrush="Black"/>
-                        <Button Content="Добавить" BorderBrush="Black" Margin="10 0 0 0"/>
+                        <Button Content="Открыть" BorderBrush="Black" Click="Open"/>
+                        <Button Content="Добавить" BorderBrush="Black" Click="AddImage" Margin="10 0 0 0"/>
                 </StackPanel>
+                <ListBox Name="ListBoxImage"
+                         Width="500"
+                         HorizontalAlignment="Center"
+                         Height="100"
+                         BorderBrush="Black"
+                         BorderThickness="1">
+                        <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                                <Image Width="100" Height="100" Source="{Binding savesImage}"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                        </ListBox.ItemTemplate>
+                </ListBox>
         </StackPanel>
 </Window>
