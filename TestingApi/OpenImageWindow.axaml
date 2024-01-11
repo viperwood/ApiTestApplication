@@ -34,5 +34,6 @@
                                 </DataTemplate>
                         </ListBox.ItemTemplate>
                 </ListBox>
+                <TextBlock Name="ComplitText"/>
         </StackPanel>
 </Window>

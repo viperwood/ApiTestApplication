@@ -18,28 +18,36 @@ namespace TestingApi;
 
 public partial class OpenImageWindow : Window
 {
+    private string _pathDirectory;
+    private string _pathImageName;
     public OpenImageWindow()
     {
         InitializeComponent();
+        PathCombine();
         ListImage();
     }
 
-    private string _pathDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images\\");
-    private string _pathImageName;
+    
     private async void Open(object? sender, RoutedEventArgs e)
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
         openFileDialog.Filters.Add(new FileDialogFilter() {Name = "jpeg", Extensions = {"jpeg"}});
+        openFileDialog.Filters.Add(new FileDialogFilter() {Name = "jpg", Extensions = {"jpg"}});
         var path = await openFileDialog.ShowAsync(this);
         if (path != null)
         {
             _pathImageName = "";
-            _pathDirectory = _pathDirectory.Replace("bin\\Debug\\net8.0", "");
             _pathImageName = Path.GetFileName(path[0]);
             string fulPathImage = Path.Combine(_pathDirectory,_pathImageName);
             File.Copy(path[0],fulPathImage,true);
             ImageFromAdd.Source = new Bitmap(new FileStream(path[0],FileMode.Open));
         }
+    }
+
+    private void PathCombine()
+    { 
+        _pathDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Images\\");
+        _pathDirectory = _pathDirectory.Replace("bin\\Debug\\net8.0\\", "");
     }
 
 
@@ -48,6 +56,7 @@ public partial class OpenImageWindow : Window
         using (var content = new HttpClient())
         {
             HttpResponseMessage responseMessage = await content.GetAsync($"http://localhost:5110/api/Controller2/GetSaveImmage?immageName={_pathImageName}");
+            ComplitText.Text = "Запрос сделан";
         }
     }
 
@@ -60,10 +69,18 @@ public partial class OpenImageWindow : Window
             {
                 string imageContent = await responseMessage.Content.ReadAsStringAsync();
                 List<ImageInfo> listImage = JsonConvert.DeserializeObject<List<ImageInfo>>(imageContent)!.ToList();
-                ListBoxImage.ItemsSource = listImage.Select(x => new
+                List<String> a = new List<string>();
+                foreach (var element in listImage)
                 {
-                    savesImage = new Bitmap(new FileStream(Path.Combine(_pathDirectory,x.ImageName!), FileMode.Open))
+                    string c = Path.Combine(_pathDirectory, element.ImageName);
+                    a.Add(c);
+                }
+                
+                ListBoxImage.ItemsSource = a.Select(x => new
+                {
+                    savesImage = new Bitmap(new FileStream(x, FileMode.Open))
                 }).ToList();
+                ComplitText.Text += "\n Картинка добавлена";
             }
         }
     }
